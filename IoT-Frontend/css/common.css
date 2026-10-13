@@ -1,0 +1,277 @@
+:root {
+    --sidebar-bg: #11677f;
+    --header-bg: #11677f;
+    --page-bg: #c9e7f0;
+    --active-bg: #ffffff;
+    --active-text: #4387e9;
+    --sidebar-text: #4387e9;
+    --text-dark: #111111;
+    --white: #ffffff;
+    --border: #d9e3e7;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+
+    --content-left: 170px;
+    --header-height: 52px;
+    --sidebar-width: 170px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-dark);
+    background: var(--page-bg);
+}
+
+body {
+    min-width: 900px;
+    overflow-x: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Main application wrapper */
+.app {
+    min-height: 100vh;
+    background: var(--page-bg);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--sidebar-bg);
+    z-index: 20;
+}
+
+.sidebar-menu {
+    margin-top: 51px;
+}
+
+.nav-item {
+    height: 49px;
+    display: flex;
+    align-items: center;
+    color: var(--sidebar-text);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-item.active {
+    background: var(--active-bg);
+    color: var(--active-text);
+}
+
+.nav-icon {
+    width: 42px;
+    text-align: center;
+    font-size: 18px;
+    flex: 0 0 42px;
+}
+
+.nav-label {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.nav-arrow {
+    width: 28px;
+    font-size: 27px;
+    line-height: 1;
+    font-weight: 300;
+}
+
+/* HEADER */
+
+.main {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+}
+
+.page-header {
+    height: var(--header-height);
+    background: var(--header-bg);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    position: relative;
+    z-index: 10;
+}
+
+.page-title {
+    margin: 0;
+    color: var(--white);
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+/* COMMON CONTENT */
+
+.page-content {
+    padding: 30px 22px 24px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+/* FORM CONTROLS */
+
+.input,
+.select {
+    height: 32px;
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    padding: 0 12px;
+    font-size: 15px;
+    color: #333333;
+    outline: none;
+}
+
+.input:focus,
+.select:focus {
+    border-color: #80b6ef;
+}
+
+.select {
+    cursor: pointer;
+    appearance: auto;
+    line-height: 30px;
+}
+
+.input,
+.select,
+.pagination button {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* PAGINATION */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    min-height: 27px;
+}
+
+.pagination button {
+    min-width: 22px;
+    height: 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #222222;
+    padding: 0 9px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background: #edf5ff;
+}
+
+.pagination button.active {
+    background: #ffffff;
+    color: #222222;
+    font-weight: 700;
+}
+
+.pagination button:disabled {
+    color: #b8b8b8;
+    background: #f3f3f3;
+    opacity: 0.72;
+    cursor: default;
+}
+
+.pagination-dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 27px;
+    padding: 0 9px;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #555555;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* UTILITY */
+
+.hidden {
+    display: none !important;
+}
+
+.muted {
+    color: #8a8a8a;
+}
+
+/* RESPONSIVE SCALING */
+
+@media (max-width: 1100px) {
+    body {
+        min-width: 820px;
+    }
+
+    .page-content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+.total-records {
+    font-size: 15px;
+    font-weight: 700;
+    color: #153d4c;
+}
+
+
+/* Cuộn bảng */
+
+.data-table-card,
+.history-table-card {
+    position: relative;
+    max-height: 380px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+/* Giữ tiêu đề cột cố định khi cuộn */
+.data-table-card thead th,
+.history-table-card thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #ffffff;
+}
+
+

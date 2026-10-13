@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - IoT</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/history.css">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <nav class="sidebar-menu">
+            <a class="nav-item" href="dashboard.html"><span class="nav-icon">⌂</span><span class="nav-label">Dashboard</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item" href="datasensor.html"><span class="nav-icon">▧</span><span class="nav-label">Datasensor</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item active" href="history.html"><span class="nav-icon">◷</span><span class="nav-label">History</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item" href="profile.html"><span class="nav-icon">☺</span><span class="nav-label">Profile</span><span class="nav-arrow">›</span></a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <header class="page-header">
+            <h1 class="page-title">ACTIVE HISTORY</h1>
+        </header>
+
+        <section class="page-content history-content">
+            <div class="history-filter-bar">
+                <div class="search-wrap">
+                    <input id="historySearch" class="input" type="text" placeholder="Search by time">
+                    <span class="search-icon">⌕</span>
+                </div>
+
+                <select id="historyDeviceFilter" class="select" aria-label="Device name filter">
+                    <option value="" selected disabled>Device name</option>
+                    <option value="all">All devices</option>
+                    <option value="Light">Light</option>
+                    <option value="Air Conditioner">Air Conditioner</option>
+                    <option value="Fan">Fan</option>
+                </select>
+
+                <select id="historyActionFilter" class="select" aria-label="Action filter">
+                    <option value="" selected disabled>Action</option>
+                    <option value="all">All actions</option>
+                    <option value="On">On</option>
+                    <option value="Off">Off</option>
+                </select>
+
+                <select id="historyStatusFilter" class="select" aria-label="Status filter">
+                    <option value="" selected disabled>Device status</option>
+                    <option value="all">All status</option>
+                    <option value="On">On</option>
+                    <option value="Off">Off</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Failed">Failed</option>
+                </select>
+
+                <div class="rows-control">
+                    <select id="historyRowsPerPage" class="select rows-select">
+                        <option value="10" selected>10 rows</option>
+                        <option value="25">25 rows</option>
+                        <option value="35">35 rows</option>
+                        <option value="50">50 rows</option>
+                        <option value="100">100 rows</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="history-table-card">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Device name</th>
+                            <th>Action</th>
+                            <th>Device status</th>
+                            <th>Performed By</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="history-footer">
+                <div id="historyTotal" class="total-records">0 out of 0 records</div>
+                <div id="historyPagination" class="pagination"></div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="../js/services/api.js"></script>
+<script src="../js/services/mock-data.js"></script>
+<script src="../js/common/pagination.js"></script>
+<script src="../js/history/history.js"></script>
+</body>
+</html>

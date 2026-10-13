@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasensor - IoT</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/datasensor.css">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <nav class="sidebar-menu">
+            <a class="nav-item" href="dashboard.html"><span class="nav-icon">⌂</span><span class="nav-label">Dashboard</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item active" href="datasensor.html"><span class="nav-icon">▧</span><span class="nav-label">Datasensor</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item" href="history.html"><span class="nav-icon">◷</span><span class="nav-label">History</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item" href="profile.html"><span class="nav-icon">☺</span><span class="nav-label">Profile</span><span class="nav-arrow">›</span></a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <header class="page-header">
+            <h1 class="page-title">DATASENSOR</h1>
+        </header>
+
+        <section class="page-content data-content">
+            <div class="filter-bar">
+                <div class="search-wrap">
+                    <input id="sensorSearch" class="input" type="text" placeholder="Search">
+                    <span class="search-icon">⌕</span>
+                </div>
+
+                <select id="sensorTypeFilter" class="select">
+                    <option value="all">All</option>
+                    <option value="temperature">Temperature Sensor</option>
+                    <option value="light">Light Sensor</option>
+                    <option value="humidity">Humidity Sensor</option>
+                    <option value="time">Time</option>
+                </select>
+
+                <div class="rows-control">
+                    <select id="datasensorRows" class="select rows-select">
+                        <option value="10" selected>10 rows</option>
+                        <option value="25">25 rows</option>
+                        <option value="35">35 rows</option>
+                        <option value="50">50 rows</option>
+                        <option value="100">100 rows</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="data-table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Sensor Type</th>
+                            <th>Value</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sensorTableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="data-footer">
+                <div id="sensorTotal" class="total-records">0 out of 0 records</div>
+                <div id="sensorPagination" class="pagination"></div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="../js/services/api.js"></script>
+<script src="../js/services/mock-data.js"></script>
+<script src="../js/common/pagination.js"></script>
+<script src="../js/datasensor/datasensor.js"></script>
+</body>
+</html>

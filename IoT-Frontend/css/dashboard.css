@@ -1,0 +1,266 @@
+
+.dashboard-content {
+    padding-top: 30px;
+}
+
+/* Three sensor cards */
+.sensor-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin: 0 25px 15px;
+}
+
+.sensor-card {
+    height: 127px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: var(--shadow);
+}
+
+.sensor-card.temperature {
+    background: #9bc8e9;
+}
+
+.sensor-card.light {
+    background: #6ccbd8;
+}
+
+.sensor-card.humidity {
+    background: #5799e5;
+}
+
+.sensor-name {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.sensor-value {
+    font-size: 27px;
+    font-weight: 700;
+}
+
+/* Lower dashboard area */
+.dashboard-lower {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 40px;
+    margin: 0 3px;
+}
+
+/* Chart panel */
+.chart-card {
+    min-height: 306px;
+    padding: 17px 20px 18px;
+    border-radius: 16px;
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.chart-title {
+    margin: 0;
+    color: #166786;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.chart-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chart-select {
+    height: 29px;
+    border: 1px solid #d9d9d9;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 0 7px;
+    font-size: 12px;
+    color: #444444;
+}
+
+.chart-reload {
+    width: 29px;
+    height: 29px;
+    border: 1px solid #d9d9d9;
+    background: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chart-reload:hover {
+    background: #f1f7fb;
+}
+
+.chart-container {
+    position: relative;
+    height: 248px;
+    width: 100%;
+}
+
+#sensorChart {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Device control panel */
+.device-card {
+    width: 230px;
+    height: 250px;
+    padding: 13px 20px 12px;
+    border-radius: 16px;
+}
+
+.device-title {
+    margin: 0 0 14px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.device-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.device-row {
+    height: 39px;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 0;
+}
+
+.device-icon {
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 11px;
+    flex: 0 0 29px;
+    overflow: hidden;
+}
+
+.device-icon img {
+    width: 29px;
+    height: 29px;
+    display: block;
+}
+
+.device-name {
+    flex: 1;
+    font-size: 12px;
+}
+
+.switch-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(9px);
+}
+
+.device-status {
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #999999;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    display: inline-block;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: #c6c6c6;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    top: 2px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.18);
+    transition: transform 0.2s ease;
+}
+
+.switch input:checked + .slider {
+    background: #5799e5;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(18px);
+}
+
+@media (max-width: 1000px) {
+    .dashboard-lower {
+        grid-template-columns: minmax(0, 1fr) 215px;
+        gap: 20px;
+    }
+
+    .device-card {
+        width: 215px;
+    }
+}
+
+/* ============================================================
+   DEVICE SWITCH - PENDING
+   ============================================================ */
+
+.switch.pending {
+    opacity: 0.55;
+    cursor: wait;
+}
+
+.switch.pending .slider {
+    cursor: wait;
+}
+
+
+/* Device icon glow when ON */
+.device-icon {
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.device-icon.is-on {
+    filter: brightness(1.25) drop-shadow(0 0 6px #f0d600);
+    transform: scale(1.06);
+}
+

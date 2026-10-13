@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - IoT</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <nav class="sidebar-menu">
+            <a class="nav-item active" href="dashboard.html"><span class="nav-icon">⌂</span><span class="nav-label">Dashboard</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item" href="datasensor.html"><span class="nav-icon">▧</span><span class="nav-label">Datasensor</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item" href="history.html"><span class="nav-icon">◷</span><span class="nav-label">History</span><span class="nav-arrow">›</span></a>
+            <a class="nav-item" href="profile.html"><span class="nav-icon">☺</span><span class="nav-label">Profile</span><span class="nav-arrow">›</span></a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <header class="page-header">
+            <h1 class="page-title">DASHBOARD</h1>
+        </header>
+
+        <section class="page-content dashboard-content">
+            <div class="sensor-cards">
+                <div class="sensor-card temperature">
+                    <div class="sensor-name">Temperature</div>
+                    <div class="sensor-value" id="temperatureValue">--°C</div>
+                </div>
+                <div class="sensor-card light">
+                    <div class="sensor-name">Light</div>
+                    <div class="sensor-value" id="lightValue">-- Lux</div>
+                </div>
+                <div class="sensor-card humidity">
+                    <div class="sensor-name">Humidity</div>
+                    <div class="sensor-value" id="humidityValue">--%</div>
+                </div>
+            </div>
+
+            <div class="dashboard-lower">
+                <section class="card chart-card">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Home Environment Monitoring</h2>
+                        <div class="chart-actions">
+                            <select id="chartSensorSelect" class="chart-select">
+                                <option value="all">All Sensors</option>
+                                <option value="temperature">Temperature</option>
+                                <option value="light">Light</option>
+                                <option value="humidity">Humidity</option>
+                            </select>
+                            <button id="reloadChartButton" class="chart-reload" title="Reload chart" type="button">↻</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="sensorChart"></canvas>
+                    </div>
+                </section>
+
+                <section class="card device-card">
+                    <h2 class="device-title">Devices Control</h2>
+                    <div class="device-list">
+                        <div class="device-row">
+                            <span class="device-icon" data-device-icon="Light">
+                                <img src="../assets/icons/light.svg" alt="Light">
+                            </span>
+                            <span class="device-name">Light</span>
+                            <div class="switch-wrapper">
+                                <label class="switch">
+                                    <input type="checkbox" data-device="Light">
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="device-status" data-status-for="Light">Off</span>
+                            </div>
+                        </div>
+
+                        <div class="device-row">
+                            <span class="device-icon" data-device-icon="Air Conditioner">
+                                <img src="../assets/icons/air-conditioner.svg" alt="Air Conditioner">
+                            </span>
+                            <span class="device-name">Air Conditioner</span>
+                            <div class="switch-wrapper">
+                                <label class="switch">
+                                    <input type="checkbox" data-device="Air Conditioner">
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="device-status" data-status-for="Air Conditioner">Off</span>
+                            </div>
+                        </div>
+
+                        <div class="device-row">
+                            <span class="device-icon" data-device-icon="Fan">
+                                <img src="../assets/icons/fan.svg" alt="Fan">
+                            </span>
+                            <span class="device-name">Fan</span>
+                            <div class="switch-wrapper">
+                                <label class="switch">
+                                    <input type="checkbox" data-device="Fan">
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="device-status" data-status-for="Fan">Off</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<script src="../js/services/api.js"></script>
+<script src="../js/services/mock-data.js"></script>
+<script src="../js/services/websocket.js"></script>
+<script src="../js/dashboard/sensor-chart.js"></script>
+<script src="../js/dashboard/device-control.js"></script>
+<script src="../js/dashboard/dashboard.js"></script>
+</body>
+</html>
