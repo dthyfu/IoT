@@ -226,7 +226,4 @@ async function loadInitialDeviceStates() {
 loadInitialDeviceStates();
 connectDeviceStatusWebSocket();
 
-// Ket noi khi trang Dashboard da tai xong
-loadInitialDeviceStates();
-connectDeviceStatusWebSocket();
 

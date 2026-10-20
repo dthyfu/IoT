@@ -20,7 +20,7 @@ import java.util.Locale;
 @Component
 public class MqttSensorListener {
 
-    private static final String BROKER = "tcp://";
+    private static final String BROKER = "tcp://172.20.10.2:1883";
     private static final String TOPIC = "esp32/sensor-data";
 
     private final JdbcTemplate jdbcTemplate;
@@ -50,8 +50,8 @@ public class MqttSensorListener {
             options.setAutomaticReconnect(true);
             options.setConnectionTimeout(10);
 
-            options.setUserName("");
-            options.setPassword("".toCharArray());
+            options.setUserName("thuydungvu");
+            options.setPassword("123456".toCharArray());
 
             mqttClient.connect(options);
 

@@ -70,7 +70,7 @@ function showHistoryMessage(message) {
     row.appendChild(cell);
     historyTableBody.appendChild(row);
 
-    historyTotal.textContent = "Results: 0-0 of 0";
+    historyTotal.textContent = "Results: 0 of 0";
     renderPagination(historyPagination, 1, 0, () => {});
 }
 

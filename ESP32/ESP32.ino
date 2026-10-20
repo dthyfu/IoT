@@ -5,15 +5,15 @@
 #include <time.h>
 
 // ================= WIFI =================
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "Thuy Dung Vu";
+const char* password = "dthyfu73";
 
 // ================= MQTT =================
-const char* mqtt_server = "";
+const char* mqtt_server = "172.20.10.2";
 const int mqtt_port = 1883;
 
-const char* mqtt_user = "";
-const char* mqtt_password = "";
+const char* mqtt_user = "thuydungvu";
+const char* mqtt_password = "123456";
 
 // ================= MQTT TOPIC =================
 const char* topic_sensor = "esp32/sensor-data";

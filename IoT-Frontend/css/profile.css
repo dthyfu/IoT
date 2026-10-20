@@ -102,3 +102,34 @@
         font-size: 17px;
     }
 }
+
+/* Profile header and logout button */
+.profile-header {
+    justify-content: space-between;
+}
+
+.logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #11677f;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.logout-button:hover {
+    background: #e8f5f8;
+}
+
+.logout-button span {
+    font-size: 19px;
+    line-height: 1;
+}
+

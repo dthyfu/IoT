@@ -20,9 +20,6 @@ const ApiService = {
     // Điều khiển thiết bị thông qua Spring Boot và MQTT
     
     async controlDevice(device, status) {
-        // Ánh xạ tên thiết bị trên Dashboard sang mã LED ESP32.
-        // Giả định: Light = LED đỏ, Air Conditioner = LED xanh,
-        // Fan = LED vàng. Có thể đổi nếu bạn muốn thứ tự khác.
         const ledMapping = {
             "Light": "led1",
             "Air Conditioner": "led2",
